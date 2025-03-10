@@ -1,0 +1,14 @@
+C:\Users\maufa\source\repos\aufa-training\aufa-training\bin\Debug\net8.0\aufa-training.exe
+C:\Users\maufa\source\repos\aufa-training\aufa-training\bin\Debug\net8.0\aufa-training.deps.json
+C:\Users\maufa\source\repos\aufa-training\aufa-training\bin\Debug\net8.0\aufa-training.runtimeconfig.json
+C:\Users\maufa\source\repos\aufa-training\aufa-training\bin\Debug\net8.0\aufa-training.dll
+C:\Users\maufa\source\repos\aufa-training\aufa-training\bin\Debug\net8.0\aufa-training.pdb
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.AssemblyInfoInputs.cache
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.AssemblyInfo.cs
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.csproj.CoreCompileInputs.cache
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.dll
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\refint\aufa-training.dll
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.pdb
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.genruntimeconfig.cache
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\ref\aufa-training.dll
