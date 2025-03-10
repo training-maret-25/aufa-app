@@ -79,7 +79,7 @@ public class MyClass
                 Console.Write(matrix1[i, j]);
             }
         }
-        Console.WriteLine("/b");
+        Console.WriteLine("");
         for (int i = 0; i < baris2; i++)
         {
             for (int j = 0; j < kolom2; j++)

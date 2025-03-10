@@ -12,3 +12,4 @@ C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\refint\
 C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.pdb
 C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.genruntimeconfig.cache
 C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\ref\aufa-training.dll
+C:\Users\maufa\source\repos\aufa-training\aufa-training\obj\Debug\net8.0\aufa-training.sourcelink.json
