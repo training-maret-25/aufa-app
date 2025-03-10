@@ -1,17 +1,12 @@
-﻿using System.Globalization;
-using System.Net.Http.Headers;
-using System.Numerics;
+﻿using System;
 
 public class MyClass
 {
-    static string InputString()
-    {
-        return Console.ReadLine();
-    }
     static int InputInt()
     {
         while (true)
         {
+            Console.WriteLine("Masukkan angka: ");
             string input = Console.ReadLine();
             if (int.TryParse(input, out int result))
             {
@@ -19,125 +14,91 @@ public class MyClass
             }
             else
             {
-                Console.WriteLine("masukkan angka selain angka ga bisa");
+                Console.WriteLine("Input tidak valid, masukkan angka!");
             }
         }
-
     }
-    static void Main(String[] args)
 
+    static int[,] InputMatrix(int rows, int columns, string matrixName)
     {
-        Console.WriteLine("Masukkan minimal 8 karakter Mengandung Huruf Besar dan Kecil, mengandung angka dan mengandung simbol");
-
-        string password = InputString();
-
-        if (password.Length >= 8)
+        int[,] matrix = new int[rows, columns];
+        Console.WriteLine($"Masukkan elemen untuk {matrixName}:");
+        for (int i = 0; i < rows; i++)
         {
-            if (password.Any(char.IsUpper))
+            for (int j = 0; j < columns; j++)
             {
-                if (password.Any(char.IsLower))
+                Console.Write($"Masukkan nilai di baris {i + 1}, kolom {j + 1}: ");
+                matrix[i, j] = InputInt();
+            }
+        }
+        return matrix;
+    }
+
+    static void PrintMatrix(int[,] matrix, string matrixName)
+    {
+        Console.WriteLine($"\nIsi dari {matrixName}:");
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                Console.Write(matrix[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static int[,] Matrix2D(int[,] matrix1, int[,] matrix2)
+    {
+        int rows1 = matrix1.GetLength(0);
+        int cols1 = matrix1.GetLength(1);
+        int rows2 = matrix2.GetLength(0);
+        int cols2 = matrix2.GetLength(1);
+
+        if (cols1 != rows2)
+        {
+            throw new InvalidOperationException("Jumlah kolom matriks pertama harus sama dengan jumlah baris matriks kedua.");
+        }
+
+        int[,] result = new int[rows1, cols2];
+
+        for (int i = 0; i < rows1; i++)
+        {
+            for (int j = 0; j < cols2; j++)
+            {
+                for (int k = 0; k < cols1; k++)
                 {
-                    if (password.Any(char.IsNumber))
-                    {
-                        if (password.Any(char.IsSymbol))
-                        {
-                            Console.WriteLine("SABIIIIIII");
-                        }
-                        else
-                        {
-                            Console.WriteLine("kurang karakter");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ga ada nomorn ya nih");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Ga ada huruf kecil nih bro");
+                    result[i, j] += matrix1[i, k] * matrix2[k, j];
                 }
             }
-            else
-            {
-                Console.WriteLine("Ga ada huruf besar nih ");
-            }
         }
-        else
+        return result;
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Masukkan jumlah baris untuk matriks 1:");
+        int rows1 = InputInt();
+        Console.WriteLine("Masukkan jumlah kolom untuk matriks 1:");
+        int cols1 = InputInt();
+        int[,] matrix1 = InputMatrix(rows1, cols1, "Matriks 1");
+
+        Console.WriteLine("Masukkan jumlah baris untuk matriks 2:");
+        int rows2 = InputInt();
+        Console.WriteLine("Masukkan jumlah kolom untuk matriks 2:");
+        int cols2 = InputInt();
+        int[,] matrix2 = InputMatrix(rows2, cols2, "Matriks 2");
+
+        PrintMatrix(matrix1, "Matriks 1");
+        PrintMatrix(matrix2, "Matriks 2");
+
+        try
         {
-            Console.WriteLine("kurang karakter huruf minimal 8");
+            int[,] result = Matrix2D(matrix1, matrix2);
+            PrintMatrix(result, "Hasil Matriks");
         }
-        /*
-        if (password.Any(char.IsSymbol))
+        catch (InvalidOperationException ex)
         {
-            Console.WriteLine("true");
+            Console.WriteLine($"Error: {ex.Message}");
         }
-        //&& !password.Any(char.IsLower) && !password.Any(char.IsNumber) && password.Any(char.IsUpper)
-        
-        Console.WriteLine("masukkan angka");
-        int baris1 = 0;
-        int kolom1 = 0;
-        int[,] matrix1;
-        int baris2 = 0;
-        int kolom2 = 0;
-        int[,] matrix2;
-
-        Console.WriteLine("masukkan brp baris untuk matrix 1");
-        baris1 = InputInt();
-
-        Console.WriteLine("masukkan berapa kolom untuk matrix 1");
-        kolom1 = InputInt();
-
-        matrix1 = new int[baris1, kolom1];
-        for (int i = 0; i < baris1; i++)
-        {   
-            Console.WriteLine("ini baris ke "+ i);
-
-            for (int j = 0; j < kolom1; j++)
-            {
-                Console.WriteLine("masukkan kolom ke " + j);
-                matrix1[i, j] = InputInt();
-            }
-        }
-
-        Console.WriteLine("masukkan brp baris untuk matrix ke 2");
-        baris2 = InputInt();
-
-        Console.WriteLine("masukkan berapa kolom untuk matrix ke 2 2");
-        kolom2 = InputInt();
-
-        matrix2 = new int[baris2, kolom2];
-        for (int i = 0; i < baris2; i++)
-        {
-            Console.WriteLine("ini baris ke " + i);
-
-            for (int j = 0; j < kolom2; j++)
-            {
-                Console.WriteLine("masukkan kolom ke " + j);
-                matrix2[i, j] = InputInt();
-            }
-        }
-        Console.WriteLine("");
-        Console.WriteLine("jadi isi dari keduanya adlah sebagai berikut");
-
-        for (int i = 0; i < baris1; i++)
-        {
-            for (int j = 0; j < kolom1; j++)
-            {
-                Console.Write(matrix1[i, j]);
-            }
-        }
-        Console.WriteLine("");
-        for (int i = 0; i < baris2; i++)
-        {
-            for (int j = 0; j < kolom2; j++)
-            {
-                Console.Write
-                    (matrix2[i, j]);
-            }
-        }
-        */
-
     }
 }
-
