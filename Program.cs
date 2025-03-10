@@ -25,7 +25,55 @@ public class MyClass
 
     }
     static void Main(String[] args)
+
     {
+        Console.WriteLine("Masukkan minimal 8 karakter Mengandung Huruf Besar dan Kecil, mengandung angka dan mengandung simbol");
+
+        string password = InputString();
+
+        if (password.Length >= 8)
+        {
+            if (password.Any(char.IsUpper))
+            {
+                if (password.Any(char.IsLower))
+                {
+                    if (password.Any(char.IsNumber))
+                    {
+                        if (password.Any(char.IsSymbol))
+                        {
+                            Console.WriteLine("SABIIIIIII");
+                        }
+                        else
+                        {
+                            Console.WriteLine("kurang karakter");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ga ada nomorn ya nih");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ga ada huruf kecil nih bro");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ga ada huruf besar nih ");
+            }
+        }
+        else
+        {
+            Console.WriteLine("kurang karakter huruf minimal 8");
+        }
+        /*
+        if (password.Any(char.IsSymbol))
+        {
+            Console.WriteLine("true");
+        }
+        //&& !password.Any(char.IsLower) && !password.Any(char.IsNumber) && password.Any(char.IsUpper)
+        
         Console.WriteLine("masukkan angka");
         int baris1 = 0;
         int kolom1 = 0;
@@ -69,7 +117,7 @@ public class MyClass
                 matrix2[i, j] = InputInt();
             }
         }
-
+        Console.WriteLine("");
         Console.WriteLine("jadi isi dari keduanya adlah sebagai berikut");
 
         for (int i = 0; i < baris1; i++)
@@ -88,7 +136,8 @@ public class MyClass
                     (matrix2[i, j]);
             }
         }
-       
+        */
+
     }
 }
 

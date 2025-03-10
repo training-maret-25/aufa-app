@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("aufa-training")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54993f14e9ba18754bd5b995dc39af51e7bf47c4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b709c830a4506483dd7cc9587f74d55b2bdd94b")]
 [assembly: System.Reflection.AssemblyProductAttribute("aufa-training")]
 [assembly: System.Reflection.AssemblyTitleAttribute("aufa-training")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
