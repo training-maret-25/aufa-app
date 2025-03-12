@@ -3,29 +3,54 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Transactions;
 using System.Xml.Linq;
-
-public class MyClass
+using System.IO;
+class Program
 {
-    class Product
+    static void Main()
     {
-        public string Name { get; set; }
-        public double Price { get; set; }
+        string filepath = "data.txt";
+
+        try 
+        {
+            string content = ReadFile(filepath);
+            Console.WriteLine("Isi File:");
+            Console.WriteLine(content);
+        }
+        catch (FileNotFoundException ex)
+        {
+            Console.WriteLine($"File {ex.Message}");
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine($"File {ex.Message}");
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine($"File {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"File {ex.Message}");
+        }
+       
     }
-    static void Main(string[] args)
+
+    static string ReadFile(string filePath)
     {
-        Product[] products = new Product[]
-        {
-            new Product { Name = "Smartphone", Price = 5000000 },
-            new Product { Name = "Laptop", Price = 12000000 },
-            new Product { Name = "Headphone", Price = 1500000 },
-            new Product { Name = "Monitor", Price = 3000000 }
-        };
 
-        var highest = products.OrderByDescending(e => e.Price).Take(1);
-
-        foreach (var highesProduct in highest)
+        if (!File.Exists(filePath))
         {
-            Console.WriteLine($"produk {highesProduct.Name} dengan harga {highesProduct.Price}");
+            throw new FileNotFoundException($"File {filePath} tidak ditemukan");
+        }
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string content = reader.ReadToEnd();
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return null;
+            }
+            return content;
         }
     }
 }
